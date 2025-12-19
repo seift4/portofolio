@@ -482,176 +482,110 @@ animation: pulse 3s infinite ease-in-out,hadowColor 6s infinite ease-in-out;
     margin-bottom: 40px;
 }
 
-.front {
-    position: relative;
-    top: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
+
+
+/* ==== Infinite Skills Marquee ==== */
+.skills-marquee {
     width: 100%;
-
-
+    overflow: hidden;
+    padding: 60px 0;
+    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.4), transparent);
+    margin: 40px 0;
 }
-.front div{
-    transition: 1s;
-    z-index: 100;
-    gap: 25px;
+
+.marquee-track {
+    display: flex;
+    gap: 20px;
+    animation: marqueeScroll 35s linear infinite;
+    white-space: nowrap;
+}
+
+.skill-item {
+    flex: 0 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    align-items: center;
-}
-.front a{
-        transition: 1s;
-    font-size: 40px;
+    gap: 15px;
+    padding: 20px;
+    min-width: 120px;
+    transition: all 0.4s ease;
+    opacity: 0.8;
 }
 
-.front p{
-        transition: 1s;
+.skill-item i {
+    position: relative;
+    bottom: 20px;
+    font-size: 60px;
+    transition: all 0.4s ease;
+}
+
+.skill-item p {
     font-weight: 800;
-  opacity: 0;
-}
-
-.front div:hover i {
-    filter: drop-shadow(0 0 15px red);
-    transform: scale(1.2);
-    transition: all 0.3s ease;
-}
-
-.front div:hover p {
-    opacity: 1;
-    text-shadow: 0 0 15px red;
+    font-size: 18px;
     color: white;
-    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
 }
 
-.front .html {
-        transition: 1s;
-    color: orange;
-}
+/* Hover Effect عشان يبقى في تفاعل حلو */
 
-.front .html:hover i {
-        transition: 1s;
-    filter: drop-shadow(0 0 15px  orange);
-
-}
-
-.front .html:hover p {
+.skill-item:hover {
+    transform: translateY(-15px) scale(1.1);
     opacity: 1;
-    text-shadow: 0 0 15px orange;
-
 }
 
-.front .css{
-    color: rgb(0, 145, 255);
-}
-.front .css:hover i {
-    filter: drop-shadow(0 0 15px  rgb(0, 145, 255));
-
-}
-
-.front .css:hover p {
+.skill-item:hover p {
     opacity: 1;
-    text-shadow: 0 0 15px rgb(0, 145, 255);
+    position: relative;
+    bottom: 140px;
 
-}
-.front .js{
-    color: yellow;
-}
-
-.front .js:hover i {
-    filter: drop-shadow(0 0 15px   yellow);
-
+    text-shadow: 0 0 15px currentColor;
 }
 
-.front .js:hover p {
-    opacity: 1;
-    text-shadow: 0 0 15px  yellow;
+/* ألوان الأيقونات زي الأصلي */
+.skill-item:nth-child(1) i, .skill-item:nth-child(10) i { color: orange; }
+.skill-item:nth-child(2) i, .skill-item:nth-child(11) i { color: rgb(0, 145, 255); }
+.skill-item:nth-child(3) i, .skill-item:nth-child(12) i { color: yellow; }
+.skill-item:nth-child(4) i, .skill-item:nth-child(13) i { color: chartreuse; }
+.skill-item:nth-child(5) i, .skill-item:nth-child(14) i { color: rgb(81, 0, 255); }
+.skill-item:nth-child(6) i, .skill-item:nth-child(15) i { color: orangered; }
+.skill-item:nth-child(7) i, .skill-item:nth-child(16) i { color: darkcyan; }
+.skill-item:nth-child(8) i, .skill-item:nth-child(17) i { color: rgb(33, 69, 112); }
+.skill-item:nth-child(9) i, .skill-item:nth-child(18) i { color: rgb(154, 1, 121); }
 
+/* الأنيميشن الرئيسي */
+@keyframes marqueeScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
-.front .boot{
-    color: chartreuse;
+/* Pause عند الـ hover على الشريط كله (اختياري، حلو للتفاعل) */
+.skills-marquee:hover .marquee-track {
+    animation-play-state: paused;
 }
 
-.front .boot:hover i {
-    filter: drop-shadow(0 0 15px  chartreuse);
-
+/* Responsive */
+@media (max-width: 768px) {
+    .marquee-track {
+        gap: 40px;
+        animation-duration: 25s; 
+    }
+    .skill-item {
+        min-width: 100px;
+    }
+    .skill-item i {
+        font-size: 40px;
+    }
+    .skill-item p {
+        font-size: 16px;
+    }
 }
-
-.front .boot:hover p {
-    opacity: 1;
-    text-shadow: 0 0 15px chartreuse;
-
-}
-
-.front .react{
-    color: rgb(81, 0, 255);
-}
-
-.front .react:hover i {
-    filter: drop-shadow(0 0 15px  rgb(81, 0, 255));
-
-}
-
-.front .react:hover p {
-    opacity: 1;
-    text-shadow: 0 0 15px rgb(81, 0, 255);
-
-}
-
-
-.front .gi{
-    color: orangered;
-
-}
-.front .gith{
-    color: darkcyan;
-}
-.front .gith:hover i {
-    filter: drop-shadow(0 0 15px  darkcyan);
-
-}
-
-.front .gith:hover p {
-    opacity: 1;
-    text-shadow: 0 0 15px darkcyan;
-
-}
-
-.front .cpp{
-    color: rgb(33, 69, 112);
-}
-.front .cpp:hover i {
-    filter: drop-shadow(0 0 15px  rgb(33, 69, 112));
-
-}
-
-.front .cpp:hover p {
-    opacity: 1;
-    text-shadow: 0 0 15px  rgb(33, 69, 112);
-
-}
-
-
-
-.front .tal{
-    color: rgb(154, 1, 121);
-}
-.front .tal:hover i {
-    filter: drop-shadow(0 0 15px  rgb(154, 1, 121));
-
-}
-
-.front .tal:hover p {
-    opacity: 1;
-    text-shadow: 0 0 15px rgb(154, 1, 121);
-
-}
-
-
 
 .box{
     margin-top:100px ;
@@ -929,7 +863,7 @@ animation: pulse 3s infinite ease-in-out,hadowColor 6s infinite ease-in-out;
         display: flex;
           
             flex-wrap: wrap;
-            background-color: #000000f3;
+            background-color: #000000f9;
             justify-content: center;
             width: 100%;
             height: 150vh;
@@ -1076,9 +1010,10 @@ animation: pulse 3s infinite ease-in-out,hadowColor 6s infinite ease-in-out;
     top: 5px;
    }
    .phone p{
+    z-index: 55;
     font-weight: 900;
     position: absolute;
-    top: 194px;
+    top: 50px;
     font-size: 20px;
     left: 100px;
    }
@@ -1591,3 +1526,86 @@ animation: pulse 3s infinite ease-in-out,hadowColor 6s infinite ease-in-out;
     
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Mobile Menu Styles */
+.hamburger {
+    display: none;
+    color: wheat;
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nav ul {
+    transition: all 0.4s ease;
+}
+
+.nav ul.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Active Nav Link */
+.nav ul a.active {
+    color: lightpink !important;
+    border-bottom: 3px solid lightpink;
+    padding-bottom: 5px;
+}
+
+/* Reveal Animation */
+.reveal {
+    animation: revealAnim 1s ease-out forwards;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+@keyframes revealAnim {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

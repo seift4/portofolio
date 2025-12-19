@@ -30,7 +30,7 @@
                 <a href="#home"><li>Home</li></a> 
                 <a href="#about"><li>About</li></a> 
                 <a href="#skills"><li>Skills</li></a> 
-                <a href="#"> <li>Projects</li></a> 
+                <a href=""> <li>Projects</li></a> 
                 <a href="#contact"><li>Contacts</li></a> 
             </ul>
         <div class="g">
@@ -88,16 +88,84 @@
 
 </div>
 
-<div class="front">
-    <div class="html"> <a class="html2"><i class="devicon-html5-plain fa-2xl"></i></a> <p>HTML</p></div>
-    <div class="css">  <a class="css2"><i class="devicon-css3-plain fa-2xl"></i></a>   <p>CSS</p></div>
-    <div class="js">   <a class="js2"><i class="devicon-javascript-plain fa-2xl"></i></a>       <p>J.S</p></div>
-    <div class="boot"> <a class="boot2"><i class="devicon-bootstrap-plain fa-2xl"></i></a><p>BootStrap</p></div>
-    <div class="react"><a class="react2"><i class="devicon-react-plain fa-flip-both"></i></a><p>React</p></div>
-    <div class="gi">   <a class="gi2"><i class="devicon-git-plain fa-2xl"></i></a>       <p>Git</p></div>
-    <div class="gith"> <a class="gith2"><i class="devicon-github-plain fa-2xl"></i></a>      <p>GitHup</p></div>
-    <div class="cpp">  <a class="cpp2"><i class="devicon-cplusplus-plain fa-2xl"></i></a><p>C++</p></div>
-<div class="tal"> <a class="tal2"><i class="devicon-tailwindcss-plain fa-2xl"></i></a><p>Tailwind</p>
+<div class="skills-marquee">
+    <div class="marquee-track">
+        <!-- العناصر الأصلية -->
+        <div class="skill-item">
+            <i class="devicon-html5-plain fa-2xl"></i>
+            <p>HTML</p>
+        </div>
+        <div class="skill-item">
+            <i class="devicon-css3-plain fa-2xl"></i>
+            <p>CSS</p>
+        </div>
+        <div class="skill-item">
+            <i class="devicon-javascript-plain fa-2xl"></i>
+            <p>J.S</p>
+        </div>
+        <div class="skill-item">
+            <i class="devicon-bootstrap-plain fa-2xl"></i>
+            <p>BootStrap</p>
+        </div>
+        <div class="skill-item">
+            <i class="devicon-react-plain fa-flip-both fa-2xl"></i>
+            <p>React</p>
+        </div>
+        <div class="skill-item">
+            <i class="devicon-git-plain fa-2xl"></i>
+            <p>Git</p>
+        </div>
+        <div class="skill-item">
+            <i class="devicon-github-plain fa-2xl"></i>
+            <p>GitHub</p>
+        </div>
+        <div class="skill-item">
+            <i class="devicon-cplusplus-plain fa-2xl"></i>
+            <p>C++</p>
+        </div>
+        <div class="skill-item">
+            <i class="devicon-tailwindcss-plain fa-2xl"></i>
+            <p>Tailwind</p>
+        </div>
+
+      
+        <div class="skill-item">
+            <i class="devicon-html5-plain fa-2xl"></i>
+            <p>HTML</p>
+        </div>
+        <div class="skill-item">
+            <i class="devicon-css3-plain fa-2xl"></i>
+            <p>CSS</p>
+        </div>
+        <div class="skill-item">
+            <i class="devicon-javascript-plain fa-2xl"></i>
+            <p>J.S</p>
+        </div>
+        <div class="skill-item">
+            <i class="devicon-bootstrap-plain fa-2xl"></i>
+            <p>BootStrap</p>
+        </div>
+        <div class="skill-item">
+            <i class="devicon-react-plain fa-flip-both fa-2xl"></i>
+            <p>React</p>
+        </div>
+        <div class="skill-item">
+            <i class="devicon-git-plain fa-2xl"></i>
+            <p>Git</p>
+        </div>
+        <div class="skill-item">
+            <i class="devicon-github-plain fa-2xl"></i>
+            <p>GitHub</p>
+        </div>
+        <div class="skill-item">
+            <i class="devicon-cplusplus-plain fa-2xl"></i>
+            <p>C++</p>
+        </div>
+        <div class="skill-item">
+            <i class="devicon-tailwindcss-plain fa-2xl"></i>
+            <p>Tailwind</p>
+        </div>
+    </div>
 </div>
 </div>
 
@@ -229,6 +297,117 @@
 
 </section>
 
-    
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// ===== Mobile Menu Toggle =====
+const navUl = document.querySelector('.nav ul');
+const hamburger = document.createElement('div');
+hamburger.className = 'hamburger';
+hamburger.innerHTML = `<i class="fa-solid fa-bars fa-2xl"></i>`;
+document.querySelector('.nav').insertBefore(hamburger, document.querySelector('.nav .logo'));
+
+hamburger.addEventListener('click', () => {
+    navUl.classList.toggle('active');
+});
+
+// ===== Smooth Scroll =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            window.scrollTo({
+                top: target.offsetTop - 80,
+                behavior: 'smooth'
+            });
+            // إغلاق المينيو على الموبايل بعد الضغط
+            navUl.classList.remove('active');
+        }
+    });
+});
+// ===== Active Nav Link on Scroll (محسّن) =====
+const sections = document.querySelectorAll('section, .home'); // أضفنا .home كـ section
+const navLinks = document.querySelectorAll('.nav ul a[href^="#"]');
+
+window.addEventListener('scroll', () => {
+    let current = 'home'; // افتراضي: لو في الأعلى يبقى home
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 150; // زيادة الـ tolerance شوية
+        const sectionHeight = section.clientHeight;
+        const sectionId = section.getAttribute('id') || 'home'; // لو مفيش id يبقى home
+
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+            current = sectionId;
+        }
+    });
+
+    // لو في أعلى الصفحة خالص (scrollY < 100) نضمن إنه home
+    if (window.scrollY < 100) {
+        current = 'home';
+    }
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        const href = link.getAttribute('href');
+        if (href === '#' || href === '#home') {
+            if (current === 'home') link.classList.add('active');
+        } else if (href === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+});
+// ===== Reveal on Scroll (Intersection Observer) =====
+const revealElements = document.querySelectorAll('.text2, .img, .front > div, .box > div, .input > div, .in');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('reveal');
+        }
+    });
+}, { threshold: 0.15 });
+
+revealElements.forEach(el => observer.observe(el));
+
+// ===== Simple Parallax for Home Background =====
+window.addEventListener('scroll', () => {
+    const home = document.querySelector('.home');
+    const scrollPos = window.scrollY;
+    home.style.backgroundPositionY = `${scrollPos * 0.5}px`;
+});
+
+// ===== Clear placeholder on focus (Contact Form) =====
+const inputs = document.querySelectorAll('.in input');
+inputs.forEach(input => {
+    const placeholderText = input.value;
+    input.addEventListener('focus', () => {
+        if (input.value === placeholderText) input.value = '';
+    });
+    input.addEventListener('blur', () => {
+        if (input.value === '') input.value = placeholderText;
+    });
+});
+
+// ===== Extra hover glow for skill icons =====
+document.querySelectorAll('.front > div').forEach(icon => {
+    icon.addEventListener('mouseenter', () => {
+        icon.style.transform = 'translateY(-10px) scale(1.1)';
+    });
+    icon.addEventListener('mouseleave', () => {
+        icon.style.transform = 'translateY(0) scale(1)';
+    });
+});
+</script>
 </body>
 </html>
