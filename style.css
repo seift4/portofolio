@@ -1132,7 +1132,7 @@ animation: pulse 3s infinite ease-in-out,hadowColor 6s infinite ease-in-out;
 
     position: relative;
     top: 0px;
-    right: 20px;
+    right: 10px;
 }
 .fas a{
      color: #00a6ff;
@@ -1145,7 +1145,7 @@ animation: pulse 3s infinite ease-in-out,hadowColor 6s infinite ease-in-out;
     color: #4de4ff;
         position: relative;
     top: 0px;
-    left: 20px;
+    left: 0px;
 }
 .linked a{
    color: #4de4ff;
@@ -1436,8 +1436,8 @@ animation: pulse 3s infinite ease-in-out,hadowColor 6s infinite ease-in-out;
         font-size: 45px;
     }
     .text .me{
-        width: 400px;
-        font-size: 15px;
+        width: 350px;
+        font-size: 11px;
         text-align: center;
     }
 
@@ -1456,30 +1456,40 @@ animation: pulse 3s infinite ease-in-out,hadowColor 6s infinite ease-in-out;
     }
     .text2 .p2{
         font-size: 18px;
-        width: 350px;
+        width: 300px;
     }
     .text2 .p3{
         font-size: 18px;
-        width: 350px;
+        width: 300px;
+    }
+    .img img{
+        height: 250px;
+        width: 280px;
     }
     .img{
       
         position: relative;
         bottom: 50px;
-        right: 50px;
+        right: 70px;
     }
     .skills{
-        height: 340vh;
+        height: 390vh;
         margin-top: 250px;
     }
     .skills .front{
         flex-wrap: wrap;
     }
-    .skills .system{height: 340px;}
+    .skills .box div{height: 70vh;}
     
     .skills .web{
-        height: 340px;
+       
+        height: 70vh;
     }
+    .box .web p{
+        position: relative;
+        right: 50px;
+    }
+    
     .contact{
         position: relative;
         bottom: 70px;
@@ -1529,8 +1539,12 @@ animation: pulse 3s infinite ease-in-out,hadowColor 6s infinite ease-in-out;
         flex-wrap: wrap;
         width: 60%;
     }
+    .email p{
+         font-size: 12px;
+    }
     .phone p{
         z-index: 5;
+        font-size: 14px;
             position: absolute;
     top: 49px;
 
@@ -1545,8 +1559,9 @@ animation: pulse 3s infinite ease-in-out,hadowColor 6s infinite ease-in-out;
         flex-direction: row;
         gap: 15px;
     }
+
     .applications a{
-        font-size: 20px;
+        font-size: 13px;
     }
            .input .seif{
         position: relative;
@@ -1568,7 +1583,7 @@ animation: pulse 3s infinite ease-in-out,hadowColor 6s infinite ease-in-out;
     .butn{
         width: 220px;
          position: relative;
-         right: 100px;
+         right: 150px;
         
     }
 
