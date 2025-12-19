@@ -1092,7 +1092,7 @@ animation: pulse 3s infinite ease-in-out,hadowColor 6s infinite ease-in-out;
     border-radius:20px ;
     display: flex;
     flex-wrap: wrap;
-    gap: 80px;
+    gap: 50px;
     justify-content: center;
     align-items: center;
     background-color: #000000;
