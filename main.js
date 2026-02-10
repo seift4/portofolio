@@ -98,7 +98,13 @@ document.getElementById('reset-btn').addEventListener('click', function() {
 
 
 
-
+document.addEventListener("DOMContentLoaded", () => {
+    const track = document.getElementById('marqueeTrack');
+    
+    // بنكرر المحتوى مرة واحدة بس عشان نخلق وهم اللوب اللا نهائية
+    const clone = track.innerHTML;
+    track.innerHTML += clone;
+});
 
 
 

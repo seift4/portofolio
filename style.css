@@ -63,8 +63,8 @@ body {
 
 #loader {
   position: fixed;
-padding-top: 120px;
-padding-left: 265px;
+padding-top: 100px;
+padding-left: 235px;
   width: 100%;
   height: 100%;
   color: var(--text-color);
@@ -76,8 +76,8 @@ padding-left: 265px;
 }
 
 #loader svg {
-  width: 600px;
-  height: 350px;
+  width: 500px;
+  height: 250px;
 }
 
 
@@ -110,6 +110,15 @@ padding-left: 265px;
   to {
     stroke-dashoffset: 0;
   }
+}
+/* تعديل حجم الـ SVG للموبايل */
+@media screen and (max-width: 460px) {
+    #loader svg {
+        /* تصغير الـ SVG ليناسب عرض شاشة الموبايل */
+        width: 80%; 
+        height: auto; /* الحفاظ على أبعاد اللوجو */
+        max-width: 300px; /* ضمان عدم كبر الحجم في الموبايلات الأعرض قليلاً */
+    }
 }
 
 
@@ -357,7 +366,8 @@ ul a:hover{
 .ul a.active li {
     color: var(--bg-color);
     border-bottom: solid 2px var(--two);
-    padding-bottom: 5px;
+    padding-bottom: 2px;
+    padding: 5px;
 }
 
 .git , .lin{
@@ -571,7 +581,7 @@ ul a:hover{
     }
 
     .nav ul a {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .g {
@@ -605,11 +615,7 @@ ul a:hover{
 
 /* 3. للهواتف الصغيرة جداً */
 @media (max-width: 480px) {
-    .nav ul {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* ترتيب الروابط في شبكة */
-        text-align: center;
-    }
+    
     .ul{
       display: flex;
     }
@@ -1259,11 +1265,20 @@ bottom: 30px;
         font-size: 28px;
     }
 
-    /* إلغاء تأثيرات الـ Hover المعقدة في الموبايل لسهولة الاستخدام */
-    .cardd:hover:before, 
-    .cardd:hover:after {
-        transform: none; /* الدوران ممكن يضايق المستخدم على الموبايل */
-    }
+/*Hover*/
+.imgboxx {
+  bottom: 80px;
+}
+
+.cardd:before {
+  transform: rotate(20deg);
+}
+
+.cardd:after {
+  transform: rotate(10deg);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, .2);
+}
+
     .ved {
       display: flex;
       align-items: center;
@@ -1323,18 +1338,22 @@ bottom: 30px;
 }
 
 .skills-marquee {
-
     width: 100%;
     overflow: hidden;
     padding: 60px 0;
-     background-color: var(--bg-color);   margin: 40px 0;
+    background-color: var(--bg-color);
+    margin: 40px 0;
+    position: relative;
+    /* تأثير التلاشي من الأطراف */
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 
 .marquee-track {
     display: flex;
-    gap: 20px;
-    animation: marqueeScroll 35s linear infinite;
-    white-space: nowrap;
+    width: max-content; /* مهم جداً عشان العرض يتحدد بالمحتوى */
+    gap: 40px; /* المسافة بين العناصر */
+    animation: marqueeScroll 25s linear infinite;
 }
 
 .skill-item {
@@ -1342,66 +1361,66 @@ bottom: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 15px;
-    padding: 20px;
-    min-width: 120px;
-    transition: all 0.4s ease;
-    opacity: 0.8;
+    gap: 10px;
+    width: 100px; /* عرض ثابت لكل عنصر عشان الريسبونسيف */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
 }
 
 .skill-item i {
-    position: relative;
-    bottom: 20px;
-    font-size: 60px;
-    transition: all 0.4s ease;
+    font-size: 50px;
+    color: var(--item-color);
+    transition: 0.3s;
 }
 
 .skill-item p {
-    font-weight: 800;
-    font-size: 18px;
+
+    font-weight: 700;
+    font-size: 14px;
     color: var(--text-color);
-    opacity: 0;
-    transform: translateY(10px);
-    transition: all 0.4s ease;
+   opacity: 0;
+    margin: 0;
 }
 
+/* حركة عند الهوفر */
 .skill-item:hover {
-    transform: translateY(-15px) scale(1.1);
-    opacity: 1;
+    transform: translateY(-10px) scale(1.1);
+
+}
+.skill-item:hover p{
+        opacity: 1;
 }
 
-.skill-item:hover p {
-    opacity: 1;
-    position: relative;
-    bottom: 140px;
-
-    text-shadow: 0 0 15px currentColor;
-}
-
-.skill-item:nth-child(1) i, .skill-item:nth-child(10) i { color: orange; }
-.skill-item:nth-child(2) i, .skill-item:nth-child(11) i { color: rgb(0, 145, 255); }
-.skill-item:nth-child(3) i, .skill-item:nth-child(12) i { color: rgb(185, 185, 84); }
-.skill-item:nth-child(4) i, .skill-item:nth-child(13) i { color: chartreuse; }
-.skill-item:nth-child(5) i, .skill-item:nth-child(14) i { color: rgb(81, 0, 255); }
-.skill-item:nth-child(6) i, .skill-item:nth-child(15) i { color: orangered; }
-.skill-item:nth-child(7) i, .skill-item:nth-child(16) i { color: darkcyan; }
-.skill-item:nth-child(8) i, .skill-item:nth-child(17) i { color: rgb(33, 69, 112); }
-.skill-item:nth-child(9) i, .skill-item:nth-child(18) i { color: rgb(154, 1, 121); }
-
-@keyframes marqueeScroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
+.skill-item:hover i {
+    filter: drop-shadow(0 0 10px var(--item-color));
 }
 
 .skills-marquee:hover .marquee-track {
     animation-play-state: paused;
 }
 
+/* الأنيميشن السلس */
+@keyframes marqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* بيتحرك نص المسافة (المحتوى المكرر) */
+}
+
+/* موبايل ريسبونسيف */
+@media (max-width: 768px) {
+    .marquee-track { 
+        /* زودنا الرقم من 25s لـ 45s عشان تبطأ جداً */
+        animation-duration: 30s; 
+        gap: 25px; /* قللنا المسافات شوية عشان تناسب حجم الشاشة */
+    }
+    
+    .skill-item i { 
+        font-size: 35px; /* تصغير الأيقونات للموبايل */
+    }
+    
+    .skill-item p {
+        font-size: 12px;
+    }
+}
 
 .box{
     background-color: var(--bg-color);
@@ -1628,10 +1647,6 @@ bottom: 30px;
         width: 85%; /* البطاقة تأخذ أغلب عرض الشاشة */
     }
     
-    .marquee-track {
-        animation-duration: 7s; /* تسريع الحركة قليلاً للشاشات الصغيرة */
-    }
-
 
 }
 
@@ -2372,6 +2387,10 @@ bottom: 30px;
 
     .form-container .form .button-container {
         flex-direction: column; /* جعل أزرار الإرسال والمسح تحت بعض */
+    }
+    .form-container {
+      position: relative;
+      right: 8px;
     }
 
     .form-container .form .button-container .send-button,
